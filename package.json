@@ -10,8 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1",
-    "heroku": "^7.56.0"
+    "express": "^4.17.1"
   },
   "engines": {
     "node": "v14.16.0"
