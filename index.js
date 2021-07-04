@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const data = require('./dataCowork.json');
 const cities = require('./dataCity');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 app.get('/', (req, res) => {
   res.send('Hello, welcome Hackton X fievrr API');
@@ -24,6 +24,7 @@ app.get('/datacowork/:id', (req, res) => {
     res.status(404).send(`not found...`);
   }
 });
+
 app.listen(port, (err) => {
   if (err) {
     console.error(err);

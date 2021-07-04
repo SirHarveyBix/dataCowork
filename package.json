@@ -28,10 +28,7 @@
     "server.js"
   ],
   "dependencies": {
-    "http-proxy": "1.11.1",
-    "proxy-from-env": "0.0.1",
-    "express": "^4.17.1",
-    "heroku": "^7.56.0"
+    "express": "^4.17.1"
   },
   "devDependencies": {
     "coveralls": "^2.11.6",
