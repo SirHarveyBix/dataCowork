@@ -31,3 +31,9 @@ app.listen(port, (err) => {
     console.log(`Express server listening on ${port}`);
   }
 });
+
+module.exports = {
+  parserOptions: {
+    ecmaVersion: 6,
+  },
+};
