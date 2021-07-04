@@ -1,30 +1,30 @@
 const express = require('express');
 const app = express();
+const cities = require('./dataCity.json');
 const data = require('./dataCowork.json');
-const cities = require('./dataCity');
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-  res.send('Hello, welcome Hackton X fievrr API');
+  res.send('Hello, here is th API made for hackathon X fievrr project');
 });
 
-app.get('/datacowork', (req, res) => {
+app.get('/cowork', (req, res) => {
   res.status(200).json(data.results);
+  console.log(results);
 });
 
 app.get('/cities', (req, res) => {
   res.status(200).json(cities.results);
 });
 
-app.get('/datacowork/:id', (req, res) => {
-  const dataCowork = data.results.find((d) => d.id == req.params.id);
-  if (dataCowork) {
-    res.status(200).send(dataCowork);
+app.get('/cowork/:id', (req, res) => {
+  const cowork = data.results.find((d) => d.id == req.params.id);
+  if (cowork) {
+    res.status(200).send(cowork);
   } else {
     res.status(404).send(`not found...`);
   }
 });
-
 app.listen(port, (err) => {
   if (err) {
     console.error(err);
