@@ -1,20 +1,20 @@
 const express = require('express');
 const app = express();
-const data = require('./alien.json');
+const data = require('./dataCowork.json');
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
-  res.send('Hello, welcom to alien API');
+  res.send('Hello, welcome Hackton X fievrr API');
 });
-app.get('/alien', (req, res) => {
+app.get('/datacowork', (req, res) => {
   res.status(200).json(data.results);
 });
 
-app.get('/alien/:id', (req, res) => {
-  const alien = data.results.find((d) => d.id == req.params.id);
+app.get('/datacowork/:id', (req, res) => {
+  const dataCowork = data.results.find((d) => d.id == req.params.id);
 
-  if (alien) {
-    res.status(200).send(alien);
+  if (dataCowork) {
+    res.status(200).send(dataCowork);
   } else {
     res.status(404).send(`not found...`);
   }
