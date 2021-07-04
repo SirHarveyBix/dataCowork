@@ -1,18 +1,23 @@
 const express = require('express');
 const app = express();
 const data = require('./dataCowork.json');
+const cities = require('./dataCity');
 const port = process.env.PORT || 3000;
 
 app.get('/', (req, res) => {
   res.send('Hello, welcome Hackton X fievrr API');
 });
+
 app.get('/datacowork', (req, res) => {
   res.status(200).json(data.results);
 });
 
+app.get('/cities', (req, res) => {
+  res.status(200).json(cities.results);
+});
+
 app.get('/datacowork/:id', (req, res) => {
   const dataCowork = data.results.find((d) => d.id == req.params.id);
-
   if (dataCowork) {
     res.status(200).send(dataCowork);
   } else {
