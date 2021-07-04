@@ -1,8 +1,24 @@
 const express = require('express');
 const app = express();
+const cors = require('cors');
 const cities = require('./dataCity.json');
 const data = require('./dataCowork.json');
 const port = process.env.PORT || 8080;
+
+app.use(cors());
+
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested, Content-Type, Accept Authorization'
+  );
+  if (req.method === 'OPTIONS') {
+    res.header('Access-Control-Allow-Methods', 'POST, PATCH, GET');
+    return res.status(200).json({});
+  }
+  next();
+});
 
 app.get('/', (req, res) => {
   res.send('Hello, here is th API made for hackathon X fievrr project');
